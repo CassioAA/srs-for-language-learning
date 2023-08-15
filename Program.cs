@@ -1,26 +1,11 @@
-﻿string? sentence = "";
+﻿string frontContent = "";
+string backContent = "";
 
-do {
+Console.WriteLine("What does the front of the card say?");
+    // null coalescing operator (x == null) ? y : x
+frontContent = Console.ReadLine() ?? string.Empty;
 
-    Console.WriteLine("What does the front of the card say?");
+Console.WriteLine("What does the back of the card say?");
+backContent = Console.ReadLine() ?? string.Empty;
 
-    sentence = Console.ReadLine();
-
-} while(!IsValid(sentence));
-
-Console.WriteLine(sentence);
-
-bool IsValid(string? sentence) {
-
-    if (string.IsNullOrWhiteSpace(sentence)) {
-
-        Console.WriteLine("The front of the card can't be empty.");
-        Console.WriteLine();
-        
-        return false;
-
-    }
-
-    return true;
-    
-}
+var card = new Card(frontContent, backContent);
